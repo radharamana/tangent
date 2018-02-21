@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default" role="navigation">
+    
+        <div class="navbar-header navbar-brand logo">
+                <span>Employee Dashboard</span> 
+            
+        </div>
+        
+        <div class="navbar-collapse"  ng-switch="vm.isAuthenticated()">
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                	<a href="" ng-click="vm.reloadAll()">
+                	<span class="glyphicon glyphicon-refresh"></span>&nbsp;
+                	<span>Refresh All</span>
+               		</a>
+               	</li>
+                <li ng-switch-when="false">
+                    <a href="" ng-click="vm.login()">
+                        <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                        <span class="hidden-sm">Admin</span>&nbsp;
+                    </a>
+                </li>
+                <li ng-switch-when="true">
+                    <a href="" ng-click="vm.logout()" id="logout">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                        <span>Sign out</span>&nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+   
+</nav>

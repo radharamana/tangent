@@ -1,0 +1,21 @@
+<div class="container-fluid" >
+<h3>Employees</h3>
+<std-alert-error></std-alert-error>
+<std-alert></std-alert>     
+
+<div id="employeeGrid" ui-grid="vm.employeeGrid" class="grid" >
+<div class="grid-msg-overlay" ng-hide="!loading">
+      <div class="msg">
+        <span>
+          Loading Data...
+          <i class="fa fa-spinner fa-spin"></i>
+        </span>
+      </div>
+    </div>
+    <div class="grid-msg-overlay" ng-hide="loading || vm.employeeGrid.data.length">
+      <div class="msg">
+        <span>Data Unavailable</span>
+      </div>
+    </div>
+</div>
+</div>

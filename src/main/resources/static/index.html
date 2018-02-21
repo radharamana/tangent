@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/webjars/angularjs/1.6.4/angular.js"></script>
+	<script src="/webjars/angular-animate/1.6.5/angular-animate.min.js"></script>
+	<script src="/webjars/angular-touch/1.6.5/angular-touch.min.js"></script>
+    <script src="/webjars/angular-ui-grid/4.0.6/ui-grid.js"></script>
+	<script src="/webjars/angularjs/1.6.4/angular-resource.js"></script>
+	<script src="/webjars/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+	<script src="/webjars/ngStorage/0.3.11/ngStorage.min.js"></script>
+	<script src="/webjars/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
+	<script src="/webjars/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+	<link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/webjars/angular-ui-grid/4.0.6/ui-grid.css">
+	<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
+	<link rel="stylesheet" href="content/css/app.css">
+	<title>Employee Dashboard</title>
+  </head>
+  <body ng-app="app" ng-strict-di>
+	<div class="container">
+	<div ui-view="navbar" ng-cloak></div>
+	<div class="well" ui-view="content1"></div>
+	<div class="well" ui-view="content2"></div>
+	
+	</div>
+ 	
+
+
+   	<script src="app/app.module.js"></script>
+	<script src="app/app.state.js"></script>
+	<script src="app/services/auth.jwt.service.js"></script>
+	<script src="app/services/auth.service.js"></script>
+	<script src="app/services/principal.service.js"></script>
+	<script src="app/components/alert/alert-error.directive.js"></script>
+	<script src="app/components/alert/alert.directive.js"></script>
+	<script src="app/components/alert/alert.service.js"></script>
+	<script src="app/components/login/login.controller.js"></script>
+	<script src="app/components/login/login.service.js"></script>
+	<script src="app/layouts/navbar/navbar.controller.js"></script>
+	<script src="app/layouts/error/error.state.js"></script>
+	<script src="app/blocks/config/http.config.js"></script>
+	<script src="app/blocks/config/alert.config.js"></script>
+	<script src="app/blocks/interceptors/auth-expired.interceptor.js"></script>
+	<script src="app/blocks/interceptors/auth.interceptor.js"></script>
+	<script src="app/blocks/interceptors/errorhandler.interceptor.js"></script>
+	<script src="app/blocks/interceptors/notification.interceptor.js"></script>
+	<script src="app/blocks/interceptors/notification.interceptor.js"></script>
+	<script src="app/blocks/handler/state.handler.js"></script>
+	<script src="app/home/home.state.js"></script>
+	<script src="app/admin/admin.state.js"></script>
+	<script src="app/admin/employee/employee.controller.js"></script>
+	<script src="app/services/account.service.js"></script>
+	<script src="app/services/employee.service.js"></script>
+  </body>
+</html>

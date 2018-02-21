@@ -13,33 +13,38 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.ResourceAccessException;
 
 import co.za.tangent.client.rest.TangentClient;
+import co.za.tangent.dto.LoginDTO;
 import co.za.tangent.security.jwt.TokenProvider;
 
+@Component
 public class RestAuthenicationProvider implements AuthenticationProvider {
 	private final Logger log = LoggerFactory.getLogger(RestAuthenicationProvider.class);
 	
 	@Autowired
 	private TangentClient tangentClient;
 	
-	@Autowired
-	private TokenProvider tokenProvider;
+	
 	
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 		
         try {
-        	String username = auth.getName();
-            String password = auth.getCredentials().toString();
-            String token = tangentClient.getToken(username, password);
-            tokenProvider.setTangentToken(token);
+        	LoginDTO login = new LoginDTO(auth.getName(),auth.getCredentials().toString());
+            String token = tangentClient.doAuth(login).getToken();
             List<GrantedAuthority> grantedAuths = new ArrayList<>();
-            grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
-            return new UsernamePasswordAuthenticationToken(username, password, grantedAuths);
-        } catch (Exception e) {
-        	log.error("Error authenicating user, not found: " + e.getMessage(), e);
-        	throw new BadCredentialsException("Invalid credentials");
+            grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            grantedAuths.add(new SimpleGrantedAuthority("Token "+token));
+            return new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword(), grantedAuths);
+        } catch (ResourceAccessException e) {
+        	log.error("ResourceAccessException: " + e.getMessage(), e);
+        	throw e;
+        } catch(Exception e){
+        	log.error("Unable to authenticate: " + e.getMessage(), e);
+        	throw new BadCredentialsException("Credentials are invalid");
         }
         
 		

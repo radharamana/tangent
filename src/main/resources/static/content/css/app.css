@@ -1,0 +1,113 @@
+input.currency {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.title-box {
+	border:1px solid black;
+	background-color:LightSkyBlue;
+	font-size:x-large;
+	font-weight:bold;
+	text-align:center;
+	padding:10;
+}
+
+.app-box{
+	border:1px solid black;
+	max-width:25%;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -12.5%;
+    margin-left: -12.5%;
+    
+}
+
+.app-mobile{
+	border:1px solid black;
+	padding:1%;
+}
+
+.view-box{
+	padding:1%;
+}
+
+.grid{
+	width: 90%;
+  	height: 250px;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts .alert{
+    text-overflow: ellipsis;
+}
+.alert pre{
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.alerts .toast {
+    position: fixed;
+    width: 100%;
+}
+
+.alerts .toast.left {
+    left: 5px;
+}
+
+.alerts .toast.right {
+    right: 5px;
+}
+
+.alerts .toast.top {
+    top: 55px;
+}
+
+.alerts .toast.bottom {
+    bottom: 55px;
+}
+
+@media screen and (min-width: 480px) {
+    .alerts .toast {
+        width: 50%;
+    }
+}
+
+.grid-msg-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.grid-msg-overlay .msg {
+  opacity: 1;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 50%;
+  background-color: #eee;
+  border-radius: 4px;
+  border: 1px solid #555;
+  text-align: center;
+  font-size: 24px;
+  display: table;
+}
+
+.grid-msg-overlay .msg span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
