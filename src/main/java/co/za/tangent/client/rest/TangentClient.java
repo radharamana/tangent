@@ -4,7 +4,6 @@ package co.za.tangent.client.rest;
 
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.za.tangent.domain.Employee;
 import co.za.tangent.domain.User;
+import co.za.tangent.domain.enums.Gender;
+import co.za.tangent.domain.enums.Race;
 import co.za.tangent.dto.LoginDTO;
 import io.github.polysantiago.spring.rest.RestClient;
 
@@ -30,9 +31,9 @@ public interface TangentClient {
 	
 	@GetMapping("/api/employee/")
 	List<Employee> getEmployees(@RequestHeader("Authorization") String token
-			, @RequestParam(value="race",required=false) String race
-			, @RequestParam(value="position",required=false) String position
-			, @RequestParam(value="gender",required=false) String gender
+			, @RequestParam(value="race",required=false) Race race
+			, @RequestParam(value="position",required=false) Long positionId
+			, @RequestParam(value="gender",required=false) Gender gender
 			, @RequestParam(value="email__contains",required=false) String email
 			, @RequestParam(value="start_date_range",required=false) String start_date_range
 			, @RequestParam(value="birth_date",required=false) String birthDate
@@ -41,6 +42,6 @@ public interface TangentClient {
 			);
 	
 	@GetMapping("/api/employee/me/")
-	Employee getProfile(@RequestHeader("Authorization") String token);
+	Employee getMe(@RequestHeader("Authorization") String token);
 	
 }

@@ -77,7 +77,7 @@
                 if (httpResponse.data && httpResponse.data.message) {
                     addErrorAlert(httpResponse.data.message);
                 } else {
-                    addErrorAlert(angular.toJson(httpResponse));
+                    addErrorAlert('Service Unavailable');
                 }
             }
         });

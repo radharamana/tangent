@@ -31,7 +31,6 @@ public class UserService {
     		List<Employee> employees = tangentClient.getEmployees(restToken, null, null, null, null, null, null, null);
     		employeeService.setEmployee(employees);
     	}
-    	
     	return user;
     }
 

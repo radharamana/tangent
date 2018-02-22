@@ -28,12 +28,24 @@
         	$rootScope.lookups = {};
         	return service.gender.query().$promise.then(function(res){
         		$rootScope.lookups.gender=res;
+        		$rootScope.lookups.genderObj = {};
+        		$rootScope.lookups.gender.forEach(function(e){
+        			$rootScope.lookups.genderObj[e.value] = e.label;
+        		});
         		return service.race.query().$promise;
         	}).then(function(res){
         		$rootScope.lookups.race=res;
+        		$rootScope.lookups.raceObj = {};
+        		$rootScope.lookups.race.forEach(function(e){
+        			$rootScope.lookups.raceObj[e.value] = e.label;
+        		});
         		return service.position.query().$promise;
         	}).then(function(res){
         		$rootScope.lookups.position = res;
+        		$rootScope.lookups.positionObj = {};
+        		$rootScope.lookups.position.forEach(function(e){
+        			$rootScope.lookups.positionObj['k'+e.value] = e.label;
+        		});
         	});
         	
         }

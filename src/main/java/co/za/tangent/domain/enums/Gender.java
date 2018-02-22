@@ -1,6 +1,6 @@
 package co.za.tangent.domain.enums;
 
-public enum Gender implements FilterEnum {
+public enum Gender implements FilterDTI {
 	M("M", "Male"),F("F","Female");
 	
 	private String value;

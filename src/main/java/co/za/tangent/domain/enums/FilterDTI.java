@@ -1,6 +1,6 @@
 package co.za.tangent.domain.enums;
 
-public interface FilterEnum {
+public interface FilterDTI {
 	public String getValue();
 	public String getLabel();
 }

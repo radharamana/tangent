@@ -1,59 +1,86 @@
+
 package co.za.tangent.domain;
 
-import co.za.tangent.domain.enums.FilterEnum;
+import java.util.HashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class Position implements FilterEnum
-{
+import co.za.tangent.domain.enums.FilterDTI;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "id",
+    "name",
+    "level",
+    "sort"
+})
+public class Position implements FilterDTI{
+
+    @JsonProperty("id")
     private Long id;
-
-    private String sort;
-
-    private String level;
-
+    @JsonProperty("name")
     private String name;
-
-    public Long getId ()
-    {
+    @JsonProperty("level")
+    private String level;
+    @JsonProperty("sort")
+    private Integer sort;
+    
+    @JsonProperty("id")
+    public Long getId() {
         return id;
     }
 
-    public void setId (Long id)
-    {
+    @JsonProperty("id")
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getSort ()
-    {
-        return sort;
-    }
-
-    public void setSort (String sort)
-    {
-        this.sort = sort;
-    }
-
-    public String getLevel ()
-    {
-        return level;
-    }
-
-    public void setLevel (String level)
-    {
-        this.level = level;
-    }
-
-    public String getName ()
-    {
+    @JsonProperty("name")
+    public String getName() {
         return name;
     }
 
-    public void setName (String name)
-    {
+    @JsonProperty("name")
+    public void setName(String name) {
         this.name = name;
     }
+
+    @JsonProperty("level")
+    public String getLevel() {
+        return level;
+    }
+
+    @JsonProperty("level")
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    @JsonProperty("sort")
+    public Integer getSort() {
+        return sort;
+    }
+
+    @JsonProperty("sort")
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
     
-    
-    
+
+	@Override
+	public String getValue() {
+		return getId().toString();
+	}
+
+	@Override
+	public String getLabel() {
+		return getName();
+	}
 
 	@Override
 	public int hashCode() {
@@ -79,22 +106,6 @@ public class Position implements FilterEnum
 			return false;
 		return true;
 	}
-
-	@Override
-    public String toString()
-    {
-        return "ClassPojo [id = "+id+", sort = "+sort+", level = "+level+", name = "+name+"]";
-    }
-
-	@Override
-	public String getValue() {
-		return id.toString();
-	}
-
-	@Override
-	public String getLabel() {
-		return name;
-	}
-    
-    
+	
+	
 }

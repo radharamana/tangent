@@ -1,12 +1,12 @@
 package co.za.tangent.dto;
 
-import co.za.tangent.domain.enums.FilterEnum;
+import co.za.tangent.domain.enums.FilterDTI;
 
-public class FilterDTO implements FilterEnum{
+public class FilterDTO implements FilterDTI{
 	private String value;
 	private String label;
 	
-	public FilterDTO(FilterEnum filterEnum){
+	public FilterDTO(FilterDTI filterEnum){
 		this.value = filterEnum.getValue();
 		this.label = filterEnum.getLabel();
 	}

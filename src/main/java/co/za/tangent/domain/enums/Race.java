@@ -1,8 +1,8 @@
 package co.za.tangent.domain.enums;
 
-public enum Race implements FilterEnum {
+public enum Race implements FilterDTI {
 	B("B", "Black African"),
-	C("F","Coloured"),
+	C("C","Coloured"),
 	I("I","Indian or Asian"),
 	W("W","White"),
 	N("N","None Dominant");

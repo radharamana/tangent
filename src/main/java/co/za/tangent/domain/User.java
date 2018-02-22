@@ -1,87 +1,112 @@
+
 package co.za.tangent.domain;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class User
-{
-    private String id;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "id",
+    "username",
+    "email",
+    "first_name",
+    "last_name",
+    "is_active",
+    "is_staff"
+})
+public class User {
 
+    @JsonProperty("id")
+    private Long id;
+    @JsonProperty("username")
+    private String username;
+    @JsonProperty("email")
+    private String email;
     @JsonProperty("first_name")
     private String firstName;
-
-    private String username;
-
-    @JsonProperty("is_staff")
-    private String isStaff;
-
-    @JsonProperty("is_active")
-    private String isActive;
-
-    private String email;
-
     @JsonProperty("last_name")
     private String lastName;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    @JsonProperty("is_staff")
+    private Boolean isStaff;
     
     private Set<Authority> authorities = new HashSet<>();
 
-	public String getId() {
-		return id;
-	}
+    
+    @JsonProperty("id")
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    @JsonProperty("id")
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    @JsonProperty("username")
+    public String getUsername() {
+        return username;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    @JsonProperty("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    @JsonProperty("email")
+    public String getEmail() {
+        return email;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @JsonProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getIsStaff() {
-		return isStaff;
-	}
+    @JsonProperty("first_name")
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setIsStaff(String isStaff) {
-		this.isStaff = isStaff;
-	}
+    @JsonProperty("first_name")
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getIsActive() {
-		return isActive;
-	}
+    @JsonProperty("last_name")
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setIsActive(String isActive) {
-		this.isActive = isActive;
-	}
+    @JsonProperty("last_name")
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    @JsonProperty("is_active")
+    public Boolean getIsActive() {
+        return isActive;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @JsonProperty("is_active")
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    @JsonProperty("is_staff")
+    public Boolean getIsStaff() {
+        return isStaff;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    @JsonProperty("is_staff")
+    public void setIsStaff(Boolean isStaff) {
+        this.isStaff = isStaff;
+    }
 
 	public Set<Authority> getAuthorities() {
 		return authorities;
@@ -90,14 +115,12 @@ public class User
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -110,19 +133,14 @@ public class User
 		if (!(obj instanceof User))
 			return false;
 		User other = (User) obj;
-		if (username == null) {
-			if (other.username != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!username.equals(other.username))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", username=" + username + ", isStaff=" + isStaff
-				+ ", isActive=" + isActive + ", email=" + email + ", lastName=" + lastName + "]";
-	}
+   
 
-    
 }

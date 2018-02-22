@@ -13,13 +13,14 @@
 	<link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/webjars/angular-ui-grid/4.0.6/ui-grid.css">
 	<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
+	<link rel='stylesheet' href='/webjars/angular-loading-bar/0.9.0//loading-bar.min.css' type='text/css' media='all' />
 	<link rel="stylesheet" href="content/css/app.css">
 	<title>Employee Dashboard</title>
   </head>
   <body ng-app="app" ng-strict-di>
 	<div class="container">
 	<div ui-view="navbar" ng-cloak></div>
-	<div class="well" ui-view="content1"></div>
+	<div class="well" ui-view="content1" ng-cloak></div>
 	
 	</div>
  	
@@ -47,10 +48,17 @@
 	<script src="app/blocks/interceptors/notification.interceptor.js"></script>
 	<script src="app/blocks/handler/state.handler.js"></script>
 	<script src="app/home/home.state.js"></script>
-	<script src="app/home/signin/signin.controller.js"></script>
+	<script src="app/home/home.controller.js"></script>
 	<script src="app/admin/admin.state.js"></script>
 	<script src="app/admin/employee/employee.controller.js"></script>
+	<script src="app/admin/employee/employee.state.js"></script>
+	<script src="app/admin/stats/stats.controller.js"></script>
+	<script src="app/admin/stats/stats.state.js"></script>
+	<script src="app/admin/profile/profile.controller.js"></script>
+	<script src="app/admin/profile/profile.state.js"></script>
 	<script src="app/services/account.service.js"></script>
 	<script src="app/services/employee.service.js"></script>
+	<script src="app/services/stats.service.js"></script>
+	<script src="app/services/profile.service.js"></script>
   </body>
 </html>

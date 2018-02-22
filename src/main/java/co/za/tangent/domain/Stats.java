@@ -9,22 +9,23 @@ import java.util.TreeMap;
 import co.za.tangent.domain.enums.Gender;
 import co.za.tangent.domain.enums.Race;
 
-public class Statistics {
-	private Map<Race,Integer> countByRace = new HashMap<Race, Integer>();
-	private Map<Gender, Integer> countByGender = new HashMap<Gender, Integer>();
+public class Stats {
+	private Map<Race,Long> countByRace;
+	private Map<Gender, Long> countByGender;
 	private Integer countAll;
 	private List<Employee> birthDaysThisMonth;
-	private SortedMap<Position, Integer> countByPosition = new TreeMap<Position, Integer>();
-	public Map<Race, Integer> getCountByRace() {
+	private Map<Long, Long> countByPosition
+	;
+	public Map<Race, Long> getCountByRace() {
 		return countByRace;
 	}
-	public void setCountByRace(Map<Race, Integer> countByRace) {
+	public void setCountByRace(Map<Race, Long> countByRace) {
 		this.countByRace = countByRace;
 	}
-	public Map<Gender, Integer> getCountByGender() {
+	public Map<Gender, Long> getCountByGender() {
 		return countByGender;
 	}
-	public void setCountByGender(Map<Gender, Integer> countByGender) {
+	public void setCountByGender(Map<Gender, Long> countByGender) {
 		this.countByGender = countByGender;
 	}
 	public Integer getCountAll() {
@@ -39,10 +40,10 @@ public class Statistics {
 	public void setBirthDaysThisMonth(List<Employee> birthDaysThisMonth) {
 		this.birthDaysThisMonth = birthDaysThisMonth;
 	}
-	public SortedMap<Position, Integer> getCountByPosition() {
+	public Map<Long, Long> getCountByPosition() {
 		return countByPosition;
 	}
-	public void setCountByPosition(SortedMap<Position, Integer> countByPosition) {
+	public void setCountByPosition(Map<Long, Long> countByPosition) {
 		this.countByPosition = countByPosition;
 	}
 	

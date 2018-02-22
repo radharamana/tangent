@@ -32,10 +32,6 @@
         	
         }
         
-        service.queryFilter = function(filters) {
-    		for (var field in filters) { params[field] = filters[field]; }
-    		return service.query(params);
-    	};
         
         return service;
     }

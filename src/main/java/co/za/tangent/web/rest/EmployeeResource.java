@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.za.tangent.client.rest.TangentClient;
 import co.za.tangent.domain.Employee;
+import co.za.tangent.domain.Stats;
 import co.za.tangent.domain.enums.Gender;
 import co.za.tangent.domain.enums.Race;
+import co.za.tangent.security.SecurityUtils;
 import co.za.tangent.service.EmployeeService;
+import co.za.tangent.service.StatsService;
 
 @RestController
 @RequestMapping("/api")
@@ -22,6 +25,9 @@ public class EmployeeResource {
 	
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private StatsService statsService;
 	
 	@GetMapping("/employees")
 	List<Employee> getEmployees( 
@@ -33,5 +39,16 @@ public class EmployeeResource {
 		return employeeService.getEmployees(race, position, gender, email);
 				
 	}
+	
+	@GetMapping("/employees/stats")
+	Stats getStats(){
+		return statsService.getStats();
+	}
+	
+	@GetMapping("/employees/me")
+	Employee getMe(){
+		return tangentClient.getMe(SecurityUtils.getRestToken());
+	}
+	
 	
 }

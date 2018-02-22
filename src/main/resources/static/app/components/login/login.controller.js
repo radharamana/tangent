@@ -40,7 +40,7 @@
                 vm.authenticationError = false;
                 $uibModalInstance.close();
                 $rootScope.$broadcast('authenticationSuccess');
-                $state.go('admin');
+                $state.go('employee');
             }).catch(function (error) {
                 if(!error.data || (error.data.exception && error.data.exception.includes('ResourceAccessException'))){
                 	vm.authenticationErrorTimeOut = true;
