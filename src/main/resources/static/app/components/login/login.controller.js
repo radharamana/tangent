@@ -5,9 +5,9 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
+    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance','Lookup'];
 
-    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance,Lookup) {
         var vm = this;
 
         vm.authenticationError = false;
@@ -39,23 +39,22 @@
             }).then(function () {
                 vm.authenticationError = false;
                 $uibModalInstance.close();
-                
                 $rootScope.$broadcast('authenticationSuccess');
-
                 $state.go('admin');
             }).catch(function (error) {
-                if(error.data.AuthenticationException || error.data.exception.indexOf('ResourceAccessException')==-1){
-                	vm.authenticationError = true;
-                }else{
+                if(!error.data || (error.data.exception && error.data.exception.includes('ResourceAccessException'))){
                 	vm.authenticationErrorTimeOut = true;
+                }else{
+                	vm.authenticationError = true;
                 }
+            	
                 vm.signInButtonText = "Sign In";
             });
             
-            $timeout(function(){
-            	vm.signInButtonText = "Sign In";
-                vm.authenticationErrorTimeOut = true;
-            }, 15000);
+//            $timeout(function(){
+//            	vm.signInButtonText = "Sign In";
+//                vm.authenticationErrorTimeOut = true;
+//            }, 15000);
         }
 
    }

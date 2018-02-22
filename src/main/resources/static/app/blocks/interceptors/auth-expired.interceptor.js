@@ -5,9 +5,9 @@
         .module('app')
         .factory('authExpiredInterceptor', authExpiredInterceptor);
 
-    authExpiredInterceptor.$inject = ['$rootScope', '$q', '$injector', '$sessionStorage'];
+    authExpiredInterceptor.$inject = ['$rootScope', '$q', '$injector', '$sessionStorage','$state'];
 
-    function authExpiredInterceptor($rootScope, $q, $injector, $sessionStorage) {
+    function authExpiredInterceptor($rootScope, $q, $injector, $sessionStorage,$state) {
         var service = {
             responseError: responseError
         };
@@ -22,7 +22,7 @@
                     var Auth = $injector.get('Auth');
                     Auth.authorize(true);
                 }else{
-                	 $injector.get('LoginService').open();
+                	$injector.get('LoginService').open();
                 }
             }
             return $q.reject(response);

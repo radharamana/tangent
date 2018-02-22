@@ -55,7 +55,7 @@ public class UserJWTController {
             String jwt = tokenProvider.createToken(authentication);
             return ResponseEntity.ok()
             		.header(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt)
-            		.headers(HeaderUtil.createAlert("Double-click to edit Products and Coins", null))
+            		.headers(HeaderUtil.createAlert("Welcome "+authentication.getName(), null))
             		.body(new JWTToken(jwt));
         } catch (AuthenticationException ae) {
             log.trace("Authentication exception trace: {}", ae);

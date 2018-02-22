@@ -20,6 +20,14 @@
                     controller: 'EmployeeController',
                     controllerAs: 'vm'
                 }
+            },
+            resolve:{
+            	data:['Lookup','Employee', function(Lookup, Employee){
+            		return Lookup.queryAll().then(function(){
+            			return Employee.queryLoading();
+            		})
+            		
+            	}]
             }
         });
     }

@@ -1,9 +1,5 @@
 package co.za.tangent.domain;
 
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 /**
  * A security role used by Spring Security.
  */

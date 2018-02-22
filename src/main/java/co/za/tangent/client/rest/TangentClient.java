@@ -31,12 +31,12 @@ public interface TangentClient {
 	@GetMapping("/api/employee/")
 	List<Employee> getEmployees(@RequestHeader("Authorization") String token
 			, @RequestParam(value="race",required=false) String race
-			, @RequestParam(value="position,",required=false) String position
-			, @RequestParam(value="user",required=false) String user
+			, @RequestParam(value="position",required=false) String position
 			, @RequestParam(value="gender",required=false) String gender
 			, @RequestParam(value="email__contains",required=false) String email
 			, @RequestParam(value="start_date_range",required=false) String start_date_range
 			, @RequestParam(value="birth_date",required=false) String birthDate
+			, @RequestParam(value="user",required=false) String user
 			
 			);
 	

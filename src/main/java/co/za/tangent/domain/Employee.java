@@ -1,6 +1,12 @@
 package co.za.tangent.domain;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import co.za.tangent.domain.enums.Gender;
+import co.za.tangent.domain.enums.Race;
 
 public class Employee
 {
@@ -12,7 +18,8 @@ public class Employee
     private String phoneNumber;
     
     @JsonProperty("birth_date")
-    private String birthDate;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone="CAT")
+    private LocalDate birthDate;
 
     private String email;
     
@@ -24,9 +31,9 @@ public class Employee
     @JsonProperty("days_to_birthday")
     private String daysToBirthday;
 
-    private String gender;
+    private Gender gender;
 
-    private String race;
+    private Race race;
 
     private User user;
 
@@ -54,11 +61,11 @@ public class Employee
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -116,6 +123,32 @@ public class Employee
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Employee))
+			return false;
+		Employee other = (Employee) obj;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 
 	@Override
