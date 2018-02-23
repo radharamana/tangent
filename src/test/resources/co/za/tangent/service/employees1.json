@@ -1,0 +1,28 @@
+[
+    {
+        "user": {
+            "id": 8,
+            "username": "captain",
+            "email": "captain@gmail.com",
+            "first_name": "Captain",
+            "last_name": "America",
+            "is_active": true,
+            "is_staff": true
+        },
+        "position": {
+            "id": 1,
+            "name": "Front-end Developer",
+            "level": "Senior",
+            "sort": 0
+        },
+        "phone_number": "0824478876",
+        "email": "test@test",
+        "github_user": "Captain",
+        "birth_date": "1981-07-30",
+        "gender": "M",
+        "race": "B",
+        "years_worked": 2,
+        "age": 36,
+        "days_to_birthday": 231
+    }
+]
